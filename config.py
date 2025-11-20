@@ -11,9 +11,9 @@ proj4str="+proj=stere +lat_0=-90 +lat_ts=-71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +ellps=
 
 # grid_id determines also the resolution
 #grid_id = "initmip32km"
-grid_id = "initmip16km"
+#grid_id = "initmip16km"
 #grid_id = "initmip8km"
-#grid_id = "initmip4km"
+grid_id = "initmip4km"
 #grid_id = "initmip1km"
 #grid_id = "pism7km"
 #grid_id = "pism50km"
@@ -59,7 +59,7 @@ time_averaging_period = [1979,2009] #[1985,2014] #[1986,2005] #[1950,1979]
 #torsten local and tumble
 #output_data_path = os.path.expanduser("/p/projects/tumble/pism_input/GitLab/")
 #output_data_path = os.path.expanduser("/home/albrecht/Documents/pism/python/pism_input/")
-output_data_path = os.path.expanduser("/p/projects/tumble/albrecht/pism_input/data/")
+output_data_path = os.path.expanduser("/media/jack/Jack870/Ross-Subglacial-Bed-Topography/data/PISM_AIS_outputs/data")
 #output_data_path = os.path.expanduser("/p/tmp/garbe/projects/LARMIP/forcingData/")
 #output_data_path = os.path.expanduser("/home/albrecht/Documents/pism/data/pism-ais/")
 

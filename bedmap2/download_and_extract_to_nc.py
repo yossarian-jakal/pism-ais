@@ -8,13 +8,15 @@ import numpy as np
 import sys
 import netCDF4
 import datetime
+import config as cf
+from pism_input import pism_input as pi
 
 ## this hack is needed to import config.py from the project root
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if project_root not in sys.path: sys.path.append(project_root)
-from importlin import reload
-import config as cf; reload(cf)
-import pism_input.pism_input as pi; reload(pi)
+#if project_root not in sys.path: sys.path.append(project_root)
+#from importlib import reload
+#import config as cf; reload(cf)
+#import pism_input as pi; reload(pi)
 
 ### Bedmap2   ##########################################################
 # Documentation of the data: https://www.bas.ac.uk/project/bedmap-2/
@@ -54,7 +56,7 @@ y = np.linspace(-(N-1)*dy/2.0,(N-1)*dy/2.0,N)
 print("Reading bedmap2 binary files from %s ...\n" % (bedmap2_data_path))
 
 bedm2_vars = {}
-for var, file in data_files.iteritems():
+for var, file in data_files.items():
   fname = os.path.join(bedmap2_data_path,"bedmap2_bin",file)
   vardata = np.flipud(np.ma.masked_equal(np.reshape(
           np.fromfile(fname,dtype=np.float32),(N,N)),-9999.0))
@@ -93,7 +95,7 @@ ncy   = ncout.createVariable( 'y','float64',('y',) )
 ncx[:] = x
 ncy[:] = y
 
-for varname,data in bedm2_vars.iteritems():
+for varname,data in bedm2_vars.items():
 
   ncvar = ncout.createVariable( varname,'float64',('y','x') ) #double precision
   ncvar[:] = data
